@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-hghghgh
+
 
 namespace project.Controllers
 {
@@ -28,12 +28,15 @@ namespace project.Controllers
             _mapper = mapper;
             _userManager = userManager;
             _authManager = authManager;
+    
         }
 
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
+            var fafa = 7;
+
             var user = _mapper.Map<User>(userForRegistration);
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
